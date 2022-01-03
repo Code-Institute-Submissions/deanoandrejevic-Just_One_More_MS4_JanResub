@@ -28,3 +28,15 @@ html {
     bottom: 20px;
     right: 20px;
 }
+
+/* Carousel Container */
+
+.carousel-container {
+    height: 10vh;
+}
+
+/* Header Container */
+
+.header-container {
+    padding-top: 225px;
+}

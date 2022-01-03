@@ -1,8 +1,7 @@
 <nav class="navbar navbar-light d-lg-none bg-white fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <h1 class="logo-font-shadows"><strong class="logo-font-fjalla text-danger">Your Ticket | </strong>Your Way
-            </h1>
+        <a href="{% url 'home' %}" class="nav-link">
+            <h1><strong class="fjalla-font text-uppercase text-danger">Just One More</strong></h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar">
@@ -18,19 +17,19 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">All Events</a>
+                        <a class="nav-link text-white" href="#">All Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" href="#">Music</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Festivals</a>
+                        <a class="nav-link text-white" href="#">Video Games</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Sports</a>
+                        <a class="nav-link text-white" href="#">Board Games</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Comedy</a>
+                        <a class="nav-link text-white" href="#">Technology</a>
                     </li>
                     <hr>
                     {% if user.is_authenticated %}
