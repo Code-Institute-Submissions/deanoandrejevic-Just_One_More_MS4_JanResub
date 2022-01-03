@@ -1,0 +1,22 @@
+/* Webwide styling */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+.fjalla-font {
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.shadows-font {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
