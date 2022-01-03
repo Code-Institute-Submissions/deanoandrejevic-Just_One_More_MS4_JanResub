@@ -1,0 +1,63 @@
+<nav class="navbar navbar-light d-lg-none bg-white fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <h1 class="logo-font-shadows"><strong class="logo-font-fjalla text-danger">Your Ticket | </strong>Your Way
+            </h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end bg-danger" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Options!</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">All Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" aria-current="page" href="#">Music</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Festivals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Sports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Comedy</a>
+                    </li>
+                    <hr>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">My Account <i class="fas fa-user fa-lg"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Log Out <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Login <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Register <i class="fas fa-user fa-lg"></i></a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Help <i class="fas fa-question-circle"></i></a>
+                    </li>
+                </ul>
+                <hr>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light text-white" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
