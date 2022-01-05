@@ -1,7 +1,7 @@
 [
     {
         "pk": 1,
-        "models" : "products.product",
+        "model" : "products.product",
         "fields" : {
             "sku": "1",
             "name": "God Of War: Ragnarok (Playstation 5)",
@@ -13,5 +13,5 @@
             "image_url":"https://m.media-amazon.com/images/M/MV5BMDQ1MmQ5NTItZTk0ZS00M2E5LTkzNmQtNDI2YWMyOGFlZWVjXkEyXkFqcGdeQXVyOTg3NjI1MTg@._V1_.jpg",
             "image": "1.jpg"
         }
-    },
+    }
 ]
