@@ -29,14 +29,25 @@ html {
     right: 20px;
 }
 
-/* Carousel Container */
+/* Home Page Container */
 
-.carousel-container {
-    height: 10vh;
+.splash-img {
+    background: url('/media/GodOfWar_Banner.jpg') no-repeat center center;
+    background-size: cover;
+    height: 75vh;
+    width: 100%;
 }
 
 /* Header Container */
 
 .header-container {
     padding-top: 225px;
+}
+
+/* Media Quries */
+
+@media (max-width: 991px)  {
+    .header-container {
+        padding-top: 50px;
+    }
 }
