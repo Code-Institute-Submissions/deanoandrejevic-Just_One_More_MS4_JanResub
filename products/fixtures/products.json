@@ -4,8 +4,9 @@
         "models" : "products.product",
         "fields" : {
             "sku": "1",
-            "name": "God Of War: Ragnarok (Playstation)",
+            "name": "God Of War: Ragnarok (Playstation 5)",
             "description": "Kratos and Atreus embark on a mythic journey for answers and allies before Ragnarök arrives.",
+            "platform" : "PS5",
             "price": 59.99,
             "category": 1,
             "rating": 0.0,
