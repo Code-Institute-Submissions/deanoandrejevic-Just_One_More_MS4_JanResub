@@ -60,10 +60,17 @@ html {
     z-index: -1;
 }
 
+/* Product Card */
+
+.card-image {
+    height: 300px;
+    width: 200px;
+}
+
 /* Media Quries */
 
 @media (max-width: 991px)  {
     .header-container {
-        padding-top: 50px;
+        padding-top: 80px;
     }
 }
