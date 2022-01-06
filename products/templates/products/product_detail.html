@@ -31,9 +31,14 @@
                     ({{ product.platform }}){% endif %}</strong></h1>
             <p class="unstyled no-margin">{% if product.category.name == 'video_games' %}PEGI Rating:
                 {{ product.age_rating }}{% elif product.category.name == 'board_games' %}For Ages:
+                {{ product.age_rating }}{% elif product.category.name == 'music' %} Advisory:
                 {{ product.age_rating }}{% else %}Age Rating: N/A{% endif %} | <a href="#" class="text-dark"><i
                         class="fas fa-tag"></i> {{ product.category.friendly_name }}</p>
             </a>
+            {% if product.category.name == 'music' %}
+            <small>Genre | {{ product.genre }}</small>
+            <br>
+            {% endif %}
             <small>Rating: {{ product.rating }} / 5</small>
             <hr>
             <h4>Price: <strong class="fjalla-font text-danger">£{{ product.price }}</strong></h4>
