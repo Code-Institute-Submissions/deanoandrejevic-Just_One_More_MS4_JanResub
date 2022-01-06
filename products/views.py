@@ -22,7 +22,7 @@ def products(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "What you want doesn't exsist! Try Again!")
-                return redirect(reverse('products'))
+                return redirect(reverse('index'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
