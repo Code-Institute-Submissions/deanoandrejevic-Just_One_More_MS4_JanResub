@@ -20,3 +20,19 @@ def products(request):
     }
 
     return render(request, 'products/products.html', context)
+
+
+def product_detail(request, product_id):
+    """
+    This view will show indiviual product pages depending on which
+    product was clicked on. This will display much more detail the
+    product view
+    """
+
+    product = get_object_or_404(Product, sku=product_id)
+
+    context = {
+        'products': product,
+    }
+
+    return render(request, 'products/product_detail.html', context)

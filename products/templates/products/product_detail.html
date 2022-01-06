@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-5 h-100 offset-1">
+            {% if product.image %}
+            <a href="" class="mx-auto">
+                <img src="{{ product.image.url }}" target="_blank" class="card-img-top img-fluid"
+                    alt="{{ product.name }}">
+            </a>
+            {% else %}
+            <a href="" class="mx-auto">
+                <img src="{{ MEDIA_URL }}no-image.jpg" target="_blank" class="card-img-top img-fluid"
+                    alt="{{ product.name }}">
+            </a>
+            {% endif %}
+        </div>
+        <div class="col-5">
+            <p>{{ product.name }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block postload.js %}
+
+
+
+{% endblock %}
