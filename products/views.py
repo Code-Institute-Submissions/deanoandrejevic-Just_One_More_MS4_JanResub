@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 
+from .models import Product, Category
+
 # Create your views here.
 
 def products(request):
@@ -11,8 +13,10 @@ def products(request):
     querys and sorting results
     """
 
+    products = Product.objects.all()
+
     context = {
-        'products': products
+        'products': products,
     }
 
-    return render(request, 'products/products.html')
+    return render(request, 'products/products.html', context)
