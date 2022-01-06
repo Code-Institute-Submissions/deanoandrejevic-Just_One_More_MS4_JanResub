@@ -31,17 +31,32 @@
                 {% for product in products %}
                 <div class="col-3 mt-3 mb-3">
                     <div class="card h-100 ">
-                        <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+                        <a href="">
+                            <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="...">
+                        </a>
                         <div class="card-body">
-                            <p class="card-text">{{ product.name }}{% if product.platform != null %}:
-                                {{ product.platform }}{% endif %}</p>
+                            <a href="" class="text-black">
+                                <strong>
+                                    <p class="card-text">{{ product.name }}{% if product.platform != null %}
+                                        ({{ product.platform }}){% endif %}</p>
+                                </strong>
+                            </a>
                         </div>
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col">
-                                   <p><small>Price:</small> £{{ product.price }}</p>
-                                   <p><small>Rating:</small> {{ product.rating }} / 5</p>
+                                    <p><small><i class="fas fa-wallet"></i></small> £{{ product.price }}</p>
+                                    <a href="" class="text-black unstyled">
+                                        <p><small><i class="fas fa-tag"></i></small>
+                                            {{ product.category.friendly_name }}</p>
+                                    </a>
+                                    <p><small><i class="fas fa-star"></i> Rating:</small> {{ product.rating }} / 5</p>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <a href="" class="btn btn-danger fjalla-font text-uppercase">
+                                    <strong>Add To Basket</strong>
+                                </a>
                             </div>
                         </div>
                     </div>
