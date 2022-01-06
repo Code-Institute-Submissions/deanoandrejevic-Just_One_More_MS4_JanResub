@@ -13,7 +13,19 @@ def products(request):
     querys and sorting results
     """
 
+    query = None
+
     products = Product.objects.all()
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "What you want doesn't exsist! Try Again!")
+                return redirect(reverse('products'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
 
     context = {
         'products': products,
