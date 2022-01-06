@@ -13,31 +13,57 @@
                         <h2><strong>Music</strong></h2>
                     </a>
                     <div class="dropdown-menu text-dark" aria-labelledby="music_id">
-                        <a class="dropdown-item" href="{% url 'products' %}?sort=platform&direction=asc">By Platform</a>
-                        <a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=asc">By Rating</a>
-                        <a class="dropdown-item" href="{% url 'products' %}?sort=genre&direction=asc">By Genre</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=platform&direction=asc">By Platform</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=rating&direction=asc">By Rating</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=genre&direction=asc">By Genre</a>
                         <a class="dropdown-item" href="{% url 'products' %}?category=music">All Music</a>
                     </div>
                 </li>
-                <li class="nav-item px-4">
-                    <a class="nav-link text-dark shadows-font" href="#">
-                        <h2><strong>Clothing</strong></h2>
-                    </a>
-                </li>
-                <li class="nav-item px-4">
-                    <a class="nav-link text-dark shadows-font" href="#">
+                <li class="nav-item dropdown px-4">
+                    <a class="nav-link text-dark shadows-font" href="#" id="video_game_id" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <h2><strong>Video Games</strong></h2>
                     </a>
+                    <div class="dropdown-menu text-dark" aria-labelledby="video_game_id">
+                        <a class="dropdown-item" href="{% url 'products' %}?category=video_games&sort=rating&direction=asc">By Rating</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=video_games&sort=price&direction=asc">By Price</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=video_games&sort=platform&direction=asc">By Platform</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=video_games">All Video Games</a>
+                    </div>
                 </li>
-                <li class="nav-item px-4">
-                    <a class="nav-link text-dark shadows-font" href="#">
+                <li class="nav-item dropdown px-4">
+                    <a class="nav-link text-dark shadows-font" href="#" id="board_game_id" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <h2><strong>Board Games</strong></h2>
                     </a>
+                    <div class="dropdown-menu text-dark" aria-labelledby="board_game_id">
+                        <a class="dropdown-item" href="{% url 'products' %}?category=board_games&sort=rating&direction=asc">By Rating</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=board_games">All Board Games</a>
+                    </div>
                 </li>
-                <li class="nav-item px-4">
-                    <a class="nav-link text-dark shadows-font" href="#">
+                <li class="nav-item dropdown px-4">
+                    <a class="nav-link text-dark shadows-font" href="#" id="music_id" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <h2><strong>Clothing</strong></h2>
+                    </a>
+                    <div class="dropdown-menu text-dark" aria-labelledby="music_id">
+                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=platform&direction=asc">By Platform</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=rating&direction=asc">By Rating</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=genre&direction=asc">By Genre</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=music">All Music</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown px-4">
+                    <a class="nav-link text-dark shadows-font" href="#" id="music_id" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <h2><strong>Technology</strong></h2>
                     </a>
+                    <div class="dropdown-menu text-dark" aria-labelledby="music_id">
+                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=platform&direction=asc">By Platform</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=rating&direction=asc">By Rating</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=genre&direction=asc">By Genre</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=music">All Music</a>
+                    </div>
                 </li>
             </ul>
         </div>
