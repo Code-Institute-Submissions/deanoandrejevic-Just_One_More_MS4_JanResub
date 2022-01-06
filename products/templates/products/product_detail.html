@@ -12,11 +12,11 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid ">
-    <div class="row">
-        <div class="col-5 h-100 offset-1">
+    <div class="row mt-3">
+        <div class="col-5 h-50 offset-1">
             {% if product.image %}
             <a href="" class="mx-auto">
-                <img src="{{ product.image.url }}" target="_blank" class="card-img-top img-fluid"
+                <img src="{{ product.image.url }}" target="_blank" class=" card-img-top img-fluid"
                     alt="{{ product.name }}">
             </a>
             {% else %}
@@ -27,7 +27,16 @@
             {% endif %}
         </div>
         <div class="col-5">
-            <p>{{ product.name }}</p>
+            <h1 class="fjalla-font text-danger"><strong>{{ product.name }} {% if product.platform != null %}
+                    ({{ product.platform }}){% endif %}</strong></h1>
+            <p class="unstyled">{% if product.category.name == 'video_games' %}PEGI Rating:
+                {{ product.age_rating }}{% elif product.category.name == 'board_games' %}For Ages:
+                {{ product.age_rating }}{% else %}Age Rating: N/A{% endif %} | <a href="#" class="text-dark"><i
+                        class="fas fa-tag"></i> {{ product.category.friendly_name }}</p>
+            </a>
+            <hr>
+            <h4>Price: <strong class="fjalla-font text-danger">£{{ product.price }}</strong></h4>
+            
         </div>
     </div>
 </div>
