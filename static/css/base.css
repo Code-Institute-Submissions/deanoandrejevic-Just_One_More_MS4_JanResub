@@ -68,12 +68,12 @@ html {
 
 .card-image {
     height: 300px;
-    width: 200px;
+    width: 225px;
 }
 
 .card-image-detail {
-    height: 600px;
-    width: 400px;
+    height: 650px;
+    width: 475px;
 }
 
 /* Media Quries */
