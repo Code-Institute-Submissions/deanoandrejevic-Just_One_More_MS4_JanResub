@@ -46,12 +46,39 @@
             <h3>Product Description:</h3>
             <p>{{ product.description }}</p>
             <div class="mt-4">
-                <a href="#" class="btn btn-lg text-white btn-danger">
-                    <strong>Add To Basket</strong>
-                </a>
-                <a href="#" class="btn btn-lg btn-dark text-white">
-                    <strong>Keep Shopping</strong>
-                </a>
+                <form action="" method="POST" class="form">
+                    {% if product.category.name == 'clothing' and product.sizes %}
+            <h4>Select a size</h4>
+            <ul class="list-unstyled fjalla-font">
+                <li class="list-inline-item">
+                    <input type="radio" id="xs" name="sizes" value="XS">
+                    <label for="xs">XS</label>
+                </li>
+                <li class="list-inline-item">
+                    <input type="radio" id="s" name="sizes" value="S">
+                    <label for="s">S</label>
+                </li>
+                <li class="list-inline-item">
+                    <input type="radio" id="m" name="sizes" value="M">
+                    <label for="m">M</label>
+                </li>
+                <li class="list-inline-item">
+                    <input type="radio" id="l" name="sizes" value="L">
+                    <label for="l">L</label>
+                </li>
+                <li class="list-inline-item">
+                    <input type="radio" id="xl" name="sizes" value="XL">
+                    <label for="xl">XL</label>
+                </li>
+            </ul>
+            {% endif %}
+                    <a href="#" class="btn btn-lg text-white btn-danger">
+                        <strong>Add To Basket</strong>
+                    </a>
+                    <a href="{% url 'products' %}" class="btn btn-lg btn-dark text-white">
+                        <strong>Keep Shopping</strong>
+                    </a>
+                </form>
             </div>
         </div>
     </div>

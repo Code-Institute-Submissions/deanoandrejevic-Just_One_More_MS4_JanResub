@@ -25,6 +25,7 @@ class Product(models.Model):
     age_rating = models.CharField(max_length=10, null=True, blank=True)
     platform = models.CharField(max_length=256, null=True, blank=True)
     genre = models.CharField(max_length=256, null=True, blank=True)
+    sizes = models.BooleanField(default=False, null=True, blank=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2)
