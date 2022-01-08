@@ -46,7 +46,7 @@
                         <small class="text-danger text-uppercase fjalla-font">Price:</small> £{{ item.product.price }}
                     </h5>
                     <h5>
-                        <small class="text-danger text-uppercase fjalla-font">Subtotal:</small>
+                        <small class="text-danger text-uppercase fjalla-font">Subtotal:</small> £{{ item.product.price | calc_subtotal:item.quantity }}
                     </h5>
                 </div>
             </div>
