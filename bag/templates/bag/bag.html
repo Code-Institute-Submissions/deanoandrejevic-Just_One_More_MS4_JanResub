@@ -21,7 +21,23 @@
         {% if bag_items %}
         <div class="col-6">
             <h2 class="text-center mt-2 fjalla-font text-danger">Contents</h2>
-            <div class="table-responsive"></div>
+            <div class="table-responsive">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product Info</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+
+                    {% for item in bag_items %}
+                    <p>{{ item.product.name }}</p>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
         <div class="col-6">
             <h2 class="text-center mt-2 fjalla-font text-danger">Checkout</h2>
