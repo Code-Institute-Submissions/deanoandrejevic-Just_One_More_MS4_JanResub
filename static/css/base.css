@@ -80,6 +80,13 @@ html {
     width: 475px;
 }
 
+/* Bag Styling */
+
+.bag-image {
+    height: 225px;
+    width: 150px;
+}
+
 /* Media Quries */
 
 @media (max-width: 991px)  {

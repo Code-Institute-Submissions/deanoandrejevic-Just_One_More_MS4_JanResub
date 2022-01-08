@@ -20,35 +20,48 @@
         </h1>
         {% if bag_items %}
         <div class="col-6">
-            <h2 class="text-center mt-2 fjalla-font text-danger">Contents</h2>
-            <div class="table-responsive">
-                <table class="table table-borderless">
-                    <thead>
-                        <tr>
-                            <th scope="col">Product Info</th>
-                            <th scope="col"></th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Qty</th>
-                            <th scope="col">Subtotal</th>
-                        </tr>
-                    </thead>
-
-                    {% for item in bag_items %}
-                    <p>{{ item.product.name }}</p>
-                    {% endfor %}
-                </table>
+            <h2 class="text-center mt-2 mx-auto fjalla-font text-danger">Contents</h2>
+            {% for item in bag_items %}
+            <div class="row">
+                <div class="col-3 offset-1">
+                    <img class="img-fluid bag-image my-4" src="{{ item.product.image.url }}" alt="">
+                </div>
+                <div class="col-8">
+                    <h3 class="mt-4 fjalla-font">{{ item.product.name }}</h3>
+                    {% if item.product.platform %}
+                    <h5>
+                        <small class="text-danger text-uppercase fjalla-font">Platform:</small> {{ item.product.platform }}
+                    </h5>
+                    {% endif %}
+                    {% if item.product.sizes %}
+                    <h5>
+                        <small class="text-danger text-uppercase fjalla-font">Size:</small> {{ item.size }}
+                    </h5>
+                    {% else %}
+                    {% endif %}
+                    <h5>
+                        <small class="text-danger text-uppercase fjalla-font">Qty:</small> {{ item.quantity }}
+                    </h5>
+                    <h5>
+                        <small class="text-danger text-uppercase fjalla-font">Price:</small> £{{ item.product.price }}
+                    </h5>
+                    <h5>
+                        <small class="text-danger text-uppercase fjalla-font">Subtotal:</small>
+                    </h5>
+                </div>
             </div>
+            {% endfor %}
         </div>
         <div class="col-6">
             <h2 class="text-center mt-2 fjalla-font text-danger">Checkout</h2>
-            <a href="" class="btn-dark btn btn-lg">Keep Shopping</a>
+            <a href="{% url 'products' %}" class="btn-dark btn btn-lg">Keep Shopping</a>
             <a href="" class="btn-danger btn btn-lg text-white">Checkout!</a>
         </div>
         {% else %}
         <div class="col-12">
-                <h4 class="shadows-font text-center"><strong>There is nothing in your bag!</strong>
-                    <br><a href="{% url 'products' %}" class="btn mt-2 fjalla-font btn-lg btn-dark">Keep Shopping?</a></h4>
-                
+            <h4 class="shadows-font text-center"><strong>There is nothing in your bag!</strong>
+                <br><a href="{% url 'products' %}" class="btn mt-2 fjalla-font btn-lg btn-dark">Keep Shopping?</a></h4>
+
         </div>
         {% endif %}
     </div>
