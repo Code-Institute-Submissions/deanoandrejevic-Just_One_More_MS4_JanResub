@@ -11,30 +11,32 @@
 
 {% block content %}
 
-<div class="splash-img">
-    <div class="row h-100">
-        <div class="col-5 offset-1 col-md-4 text-center my-auto">
-            <h1 class="fjalla-font text-light">
-                Pre-Order God Of War: Ragnarok Today
-            </h1>
-            <div>
-                <a href="#" class="btn btn-lg btn-danger text-white">
-                    Pre-Order
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock %}
+<div class="overlay"></div>
 
-{% block home_page_content %}
-<div class="container">
+<div class="col-10 offset-1 mt-2">
     <div class="row">
-        <div class="col-12 text-center fjalla-font text-danger pt-4">
-            <h1>Top Offers!</h1>
+        <h1 class="text-danger text-center fjalla-font">Shopping Bag
             <hr>
+        </h1>
+        {% if bag_items %}
+        <div class="col-6">
+            <h2 class="text-center mt-2 fjalla-font text-danger">Contents</h2>
+            <div class="table-responsive"></div>
         </div>
+        <div class="col-6">
+            <h2 class="text-center mt-2 fjalla-font text-danger">Checkout</h2>
+            <a href="" class="btn-dark btn btn-lg">Keep Shopping</a>
+            <a href="" class="btn-danger btn btn-lg text-white">Checkout!</a>
+        </div>
+        {% else %}
+        <div class="col-12">
+                <h4 class="shadows-font text-center"><strong>There is nothing in your bag!</strong>
+                    <br><a href="" class="btn mt-2 fjalla-font btn-lg btn-dark">Keep Shopping?</a></h4>
+                
+        </div>
+        {% endif %}
     </div>
 </div>
-{% endblock %}
 
+
+{% endblock %}
