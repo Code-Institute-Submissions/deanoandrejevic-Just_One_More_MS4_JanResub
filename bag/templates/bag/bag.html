@@ -67,7 +67,7 @@
             <h2 class="text-center"><strong class="fjalla-font text-danger">Grand Total:</strong>
                 £{{ grand_total|floatformat:2 }}</h2>
             <a href="{% url 'products' %}" class="btn-dark btn btn-lg">Keep Shopping</a>
-            <a href="" class="btn-danger btn btn-lg text-white">Checkout!</a>
+            <a href="{% url 'checkout' %}" class="btn-danger btn btn-lg text-white">Checkout!</a>
         </div>
         {% else %}
         <div class="col-12">
