@@ -53,8 +53,15 @@
                     <!-- Used to display form errors -->
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                 </fieldset>
-                <a href="{% url 'products' %}" class="btn-dark btn btn-lg">Keep Shopping</a>
-                <a href="{% url 'checkout' %}" class="btn-danger btn btn-lg text-white">Checkout!</a>
+                <div class="justify-content-end">
+                    <button class="border-0">
+                        <a href="{% url 'products' %}" class="btn-dark btn btn-lg">Keep Shopping</a>
+                    </button>
+                    <button class="border-0">
+                        <a href="{% url 'checkout' %}" class="btn-danger btn btn-lg text-white">Checkout!</a>
+                    </button>
+
+                </div>
             </form>
         </div>
         <div class="col-md-6 col-12">
