@@ -120,13 +120,22 @@
     {% block home_page_content %}
     {% endblock %}
 
+    {% if bag_items %}
     <div class="basket-button">
-        <button class="btn btn-lg btn-danger rounded-circle">
-            <span class="icon">
-                <a href="{% url 'view_bag' %}" class="text-white"><i class="p-2 fas fa-shopping-basket fa-2x"></i></a>
+        <button class="btn btn-lg btn-danger rounded-4">
+            <span>
+                <a href="{% url 'view_bag' %}" class="text-white"><i class="fas fa-shopping-basket fa-2x"></i></a>
+                <p class="text-white no-margin">
+                    {% if total %}
+                    £{{ total|floatformat:2 }}
+                    {% else %}
+                    £0.00
+                    {% endif %}
+                </p>
             </span>
         </button>
     </div>
+    {% endif %}
 
     {% block postload_js %}
     <script type="text/javascript">
