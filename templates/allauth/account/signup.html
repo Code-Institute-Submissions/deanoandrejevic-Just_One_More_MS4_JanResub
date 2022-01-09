@@ -33,14 +33,14 @@
   <a href="{{ login_url }}">Sign In</a> first.{% endblocktrans %}</p>
 {% endif %}
 
-<form class="login" method="POST" action="{% url 'account_login' %}">
+<form class="login" method="POST" action="{% url 'account_signup' %}">
   {% csrf_token %}
   {{ form|crispy }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
 
-  <button class="primaryAction btn btn-danger btn-lg text-white" type="submit">{% trans "Sign Up" %}!</button>
+  <button class="btn btn-danger btn-lg text-white" type="submit">{% trans "Sign Up" %}!</button>
 </form>
 
 {% endblock %}
