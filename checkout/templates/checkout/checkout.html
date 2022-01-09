@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+{% load crispy_forms_tags %}
+
+{% block page_header %}
+
+<div class="header-container">
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="overlay"></div>
+<div class="col-md-10 offset-md-1 col-12">
+    <div class="row">
+        <h1 class="text-center mt-2 fjalla-font text-danger">
+            Checkout
+            <hr>
+        </h1>
+        <div class="col-md-6 col-12">
+            <h2 class="text-center mt-4">
+                Delivery/Payment Details
+            </h2>
+            <form action="">
+                {% csrf_token %}
+                <fieldset class="mt-4">
+                    <legend class="text-center fjalla-font fieldset-label">Personal Details</legend>
+                    {{ order_form.full_name | as_crispy_field }}
+                    {{ order_form.email | as_crispy_field }}
+                    {{ order_form.mob_number | as_crispy_field }}
+                </fieldset>
+                <fieldset>
+                    <legend class="text-center fjalla-font fieldset-label">Delivery Details</legend>
+                    {{ order_form.first_address_line | as_crispy_field }}
+                    {{ order_form.second_address_line | as_crispy_field }}
+                    {{ order_form.city | as_crispy_field }}
+                    {{ order_form.county | as_crispy_field }}
+                    {{ order_form.postcode | as_crispy_field }}
+                    {{ order_form.country | as_crispy_field }}
+                </fieldset>
+            </form>
+        </div>
+        <div class="col-md-6 col-12">
+            <h2 class="text-center mt-4">
+                Bag Details
+
+            </h2>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+<script type="text/javascript">
+
+
+
+</script>
+
+{% endblock %}
