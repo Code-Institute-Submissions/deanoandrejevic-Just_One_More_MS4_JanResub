@@ -3,6 +3,10 @@
 {% load bag_tools %}
 {% load crispy_forms_tags %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block page_header %}
 
 <div class="header-container">
@@ -24,7 +28,7 @@
             <h2 class="text-center mt-4">
                 Delivery/Payment Details
             </h2>
-            <form action="">
+            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 <fieldset class="mt-4">
                     <legend class="text-center fjalla-font fieldset-label">Personal Details</legend>
@@ -32,7 +36,7 @@
                     {{ order_form.email | as_crispy_field }}
                     {{ order_form.mob_number | as_crispy_field }}
                 </fieldset>
-                <fieldset>
+                <fieldset class="mt-5">
                     <legend class="text-center fjalla-font fieldset-label">Delivery Details</legend>
                     {{ order_form.first_address_line | as_crispy_field }}
                     {{ order_form.second_address_line | as_crispy_field }}
@@ -41,17 +45,16 @@
                     {{ order_form.postcode | as_crispy_field }}
                     {{ order_form.country | as_crispy_field }}
                 </fieldset>
-                <fieldset>
-                    <div id="payment-element">
-                        <!--Stripe.js injects the Payment Element-->
-                      </div>
-                      <button id="submit">
-                        <div class="spinner hidden" id="spinner"></div>
-                        <span id="button-text">Pay now</span>
-                      </button>
-                      <div id="payment-message" class="hidden"></div>
-                
+                <fieldset class="mt-4">
+                    <legend class="text-center fjalla-font fieldset-label">Payment</legend>
+                    <!-- A Stripe card element will go here -->
+                    <div class="mb-3" id="card-element"></div>
+
+                    <!-- Used to display form errors -->
+                    <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                 </fieldset>
+                <a href="{% url 'products' %}" class="btn-dark btn btn-lg">Keep Shopping</a>
+                <a href="{% url 'checkout' %}" class="btn-danger btn btn-lg text-white">Checkout!</a>
             </form>
         </div>
         <div class="col-md-6 col-12">
@@ -121,8 +124,8 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
