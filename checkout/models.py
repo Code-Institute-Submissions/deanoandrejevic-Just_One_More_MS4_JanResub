@@ -14,7 +14,7 @@ class Order(models.Model):
     an order report which will be viewable to the user once they
     have created a user account
     """
-    order_number = models.CharField(max_length=32, null=False)
+    order_number = models.CharField(max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=48, null=False, blank=False)
     email = models.EmailField(max_length=256, null=False, blank=False)
     mob_number = models.CharField(max_length=15, null=False, blank=False)
@@ -35,19 +35,19 @@ class Order(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
-    def save(self, *args, **kwargs):
-        if not self.order_number:
-            self.order_number = self._generate_order_number()
-        super().save(*args, **kwargs)
-
     def update_total(self):
         """
         updates order total viewable in grand_total
         """
 
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
         self.grand_total = self.order_total + self.delivery
         self.save()
+
+    def save(self, *args, **kwargs):
+        if not self.order_number:
+            self.order_number = self._generate_order_number()
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.order_number

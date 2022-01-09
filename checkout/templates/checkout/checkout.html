@@ -57,8 +57,8 @@
                     <button class="border-0">
                         <a href="{% url 'products' %}" class="btn-dark btn btn-lg">Keep Shopping</a>
                     </button>
-                    <button class="border-0">
-                        <a href="{% url 'checkout' %}" class="btn-danger btn btn-lg text-white">Checkout!</a>
+                    <button id="submit-button" class="btn-danger btn btn-lg text-white border-0">
+                        <span>>Checkout!</span>
                     </button>
 
                 </div>
@@ -110,8 +110,6 @@
                     £{{ delivery }}</h2>
                 <h2 class="text-center"><strong class="fjalla-font text-danger">Grand Total:</strong>
                     £{{ grand_total|floatformat:2 }}</h2>
-                <a href="{% url 'products' %}" class="btn-dark btn btn-lg">Keep Shopping</a>
-                <a href="{% url 'checkout' %}" class="btn-danger btn btn-lg text-white">Checkout!</a>
             </div>
             {% else %}
             <div class="col-12">

@@ -101,19 +101,21 @@ TEMPLATES = [
                 'django.template.context_processors.request',  # Required for allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media',  # Requried to use {{ MEDIA_URL }}
-                'bag.contexts.bag_contents'
+                # Requried to use {{ MEDIA_URL }}
+                'django.template.context_processors.media',
+                'bag.contexts.bag_contents',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
-                'crispy_forms.templatetags.crispy_forms_field'
-            ]
+                'crispy_forms.templatetags.crispy_forms_field',
+            ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'just_one_more.wsgi.application'
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
