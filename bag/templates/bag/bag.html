@@ -50,7 +50,7 @@
                                     type="number" name="quantity" class="qty_input" value="{{ item.quantity }}" min="0"
                                     max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}"></h5>
                             <button class="border-0"><a class="update-link btn btn-success">Update</a></button>
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <button class="border-0"><a class="btn btn-danger" href="{% url 'remove_from_bag' item.item_id %}">Remove</a></button>
                     </form>
                     <h5 class="mt-4">
                         <small class="text-danger text-uppercase fjalla-font">Subtotal:</small>
