@@ -46,11 +46,12 @@
                     </h5>
                     <form action="{% url 'adjust_bag' item.item_id %}" method="POST" class="form update-form">
                         {% csrf_token %}
-                            <h5><small class="text-danger fjalla-font text-uppercase me-2">Qty: </small><input
-                                    type="number" name="quantity" class="qty_input" value="{{ item.quantity }}" min="0"
-                                    max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}"></h5>
-                            <button class="border-0"><a class="update-link btn btn-success">Update</a></button>
-                            <button class="border-0"><a class="btn btn-danger" href="{% url 'remove_from_bag' item.item_id %}">Remove</a></button>
+                        <h5><small class="text-danger fjalla-font text-uppercase me-2">Qty: </small><input type="number"
+                                name="quantity" class="qty_input" value="{{ item.quantity }}" min="0" max="99"
+                                data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}"></h5>
+                        <button class="border-0"><a class="update-link btn btn-success">Update</a></button>
+                        <button class="border-0"><a class="btn btn-danger" data-item_id="{{ item.size }}"
+                                href="{% url 'remove_from_bag' item.item_id %}">Remove</a></button>
                     </form>
                     <h5 class="mt-4">
                         <small class="text-danger text-uppercase fjalla-font">Subtotal:</small>
@@ -62,8 +63,9 @@
         </div>
         <div class="col-6">
             <h2 class="text-center mt-2 fjalla-font text-danger">Checkout</h2>
-            <h2><strong class="fjalla-font text-danger">Delivery:</strong> £{{ delivery }}</h2>
-            <h2><strong class="fjalla-font text-danger">Grand Total:</strong> £{{ grand_total|floatformat:2 }}</h2>
+            <h2 class="text-center mt-4"><strong class="fjalla-font text-danger">Delivery:</strong> £{{ delivery }}</h2>
+            <h2 class="text-center"><strong class="fjalla-font text-danger">Grand Total:</strong>
+                £{{ grand_total|floatformat:2 }}</h2>
             <a href="{% url 'products' %}" class="btn-dark btn btn-lg">Keep Shopping</a>
             <a href="" class="btn-danger btn btn-lg text-white">Checkout!</a>
         </div>
