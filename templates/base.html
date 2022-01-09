@@ -54,29 +54,24 @@
                     <ul class="list-inline text-center list-unstyled">
                         {% if user.is_authenticated %}
                         <li class="list-inline-item">
-                            <a href="#" class="btn btn-light btn-sm my-auto">
+                            <a href="{% url 'profile' %}" class="btn btn-light btn-sm my-auto">
                                 <p class="my-0 fjalla-font"><i class="fas fa-user fa-lg"> My Account</i></p>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="btn btn-dark btn-sm my-auto">
+                            <a href="{% url 'account_logout' %}" class="btn btn-dark btn-sm my-auto">
                                 <p class="my-0 fjalla-font"><i class="fas fa-sign-in-alt"> Log Out</i></p>
                             </a>
                         </li>
                         {% else %}
                         <li class="list-inline-item">
-                            <a href="#" class="btn btn-dark btn-sm my-auto">
+                            <a href="{% url 'account_signup' %}" class="btn btn-dark btn-sm my-auto">
                                 <p class="my-0 fjalla-font"><i class="fas fa-user"> Register</i></p>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="btn btn-light btn-sm my-auto">
+                            <a href="{% url 'account_login' %}" class="btn btn-light btn-sm my-auto">
                                 <p class="my-0 fjalla-font"><i class="fas fa-sign-in-alt"> Sign in</i></p>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#" class="btn btn-dark btn-sm my-auto">
-                                <p class="my-0 fjalla-font"><i class="fas fa-question-circle"> Help</i></p>
                             </a>
                         </li>
                         {% endif %}
