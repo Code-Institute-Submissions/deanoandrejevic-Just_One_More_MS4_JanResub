@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 {% load crispy_forms_tags %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -16,7 +17,29 @@
 
 {% block content %}
 
-<div class="overlay">{{ profile }}</div>
+<div class="overlay"></div>
+<div class="col-md-10 offset-md-1 col-12">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-danger mt-4 fjalla-font text-center">My Profile</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <p>Default Delivery Address</p>
+            <form action="{% url 'profile' %}" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+            </form>
+        </div>
+        <div class="col-md-6 col-12">
+            <p>Order History</p>
+            <form action="">
+                {{ orders }}
+            </form>
+        </div>
+    </div>
+
 
 {% endblock %}
 
