@@ -1,0 +1,18 @@
+Hello {{ order.full_name }}
+
+Thank you for shopping with Just One More.
+
+Your Order
+{{ order.product.image }}
+{{ order.product.name }}
+{{ order.product.description }}
+
+{{ order.order_total }}
+{{ order.grand_total }}
+
+Your parcel will be with you in 2-3 working days!
+Thank you again for shopping with us we hope to see you again!
+
+Regards
+
+Just One More
