@@ -87,6 +87,23 @@ html {
     width: 150px;
 }
 
+/* Toasts */
+
+.message-container {
+    position: fixed;
+    top: 60px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 /* Media Quries */
 
 @media (max-width: 991px)  {

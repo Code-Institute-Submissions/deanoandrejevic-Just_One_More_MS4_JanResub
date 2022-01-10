@@ -61,7 +61,7 @@
             <div class="row ">
                 {% for product in products %}
                 <div class="col-xl-3 col-xxl-2 col-lg-4 col-sm-6 mt-3 mb-3">
-                    <div class="card border-0 h-100">
+                    <div class="card border-1 h-100">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}" class="mx-auto">
                             <img src="{{ product.image.url }}" class="card-image card-img-top img-fluid"
@@ -99,11 +99,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="row">
-                                <a href="" class="btn btn-danger fjalla-font text-uppercase">
-                                    <strong>Add To Basket</strong>
-                                </a>
-                            </div>
                         </div>
 
                     </div>
@@ -117,4 +112,5 @@
     {% endblock %}
 
     {% block postloadjs %}
+    {{ block.super }}
     {% endblock %}
