@@ -30,8 +30,8 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 <div>
-                    <button class="border-0" type="submit">
-                        <a href="" class="btn btn-danger btn-lg">Add Product</a>
+                    <button class="border-0 btn btn-danger btn-lg" type="submit">
+                        Add Product
                     </button>
                     <a href="{% url 'products' %}" class="btn btn-dark btn-lg">Back to Products</a>
                 </div>
