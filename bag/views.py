@@ -51,7 +51,6 @@ def add_to_basket(request, item_id):
             messages.success(request, f'Added {product.name} to your bag')
 
     request.session['bag'] = bag
-    print(request.session['bag'])
     return redirect(redirect_url)
 
 
@@ -68,7 +67,8 @@ def adjust_bag(request, item_id):
     if size:
         if quantity > 0:
             bag[item_id]['items_by_size'][size] = quantity
-            messages.success(request, f'Updated size {size.upper()} {product.name} quantity to {bag[item_id]["items_by_size"][size]}')
+            messages.success(
+                request, f'Updated size {size.upper()} {product.name} quantity to {bag[item_id]["items_by_size"][size]}')
         else:
             del bag[item_id]['items_by_size'][size]
             if not bag[item_id]['items_by_size']:
@@ -110,5 +110,5 @@ def remove_from_bag(request, item_id):
         return redirect(reverse('view_bag'))
 
     except Exception as e:
-        message.error(request, f'Error removing item {e}')
+        messages.error(request, f'Error removing item {e}')
         return HttpResponse(status=500)
