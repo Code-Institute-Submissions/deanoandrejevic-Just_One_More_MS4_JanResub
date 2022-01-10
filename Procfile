@@ -1,0 +1,1 @@
+web: gunicorn just_one_more.wsgi:application
