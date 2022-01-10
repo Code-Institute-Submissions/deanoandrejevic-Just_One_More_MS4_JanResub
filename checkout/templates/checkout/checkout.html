@@ -24,10 +24,10 @@
             Checkout
             <hr>
         </h1>
-        <div class="col-md-6 col-12">
-            <h2 class="text-center mt-4">
+        <div class="col-md-5 mt-4 col-10 offset-1">
+            <h4 class="text-center shadows-font mt-4">
                 Delivery/Payment Details
-            </h2>
+            </h4>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 <fieldset class="mt-4">
@@ -76,10 +76,10 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-6 col-12">
-            <h2 class="text-center mt-4">
+        <div class="col-md-5 col-10">
+            <h4 class="text-center shadows-font mt-4">
                 Bag Details
-            </h2>
+            </h4>
             {% if bag_items %}
             <div class="col-12">
                 {% for item in bag_items %}

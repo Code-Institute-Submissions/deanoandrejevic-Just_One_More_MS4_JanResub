@@ -20,7 +20,7 @@
             <hr>
         </h1>
         {% if bag_items %}
-        <div class="col-6">
+        <div class="col-md-5 col-10 offset-md-1">
             <h2 class="text-center mt-2 mx-auto fjalla-font text-danger">Contents</h2>
             {% for item in bag_items %}
             <div class="row">
@@ -61,7 +61,7 @@
             </div>
             {% endfor %}
         </div>
-        <div class="col-6">
+        <div class="col-md-5 col-10 offset-md-1">
             <h2 class="text-center mt-2 fjalla-font text-danger">Checkout</h2>
             <h2 class="text-center mt-4"><strong class="fjalla-font text-danger">Delivery:</strong> £{{ delivery }}</h2>
             <h2 class="text-center"><strong class="fjalla-font text-danger">Grand Total:</strong>
