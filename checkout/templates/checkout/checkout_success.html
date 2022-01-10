@@ -18,28 +18,82 @@
 {% block content %}
 
 <div class="overlay"></div>
-<div class="container col-10 offset-1">
+<div class="container col-10 offset-2">
     <div class="row">
         <div class="col">
-            <h1 class="text-danger text-center fjalla-font">Order Confirmation: {{ order.order_number }}</h1>
-            <p>Thank you {{ order.full_name }} for choosing Just One More. You will receive an email shortly to
+            <h1 class="text-danger text-center fjalla-font mt-4">Order Confirmation: {{ order.order_number }}</h1>
+            <p class="text-center mb-4">Thank you {{ order.full_name }} for choosing Just One More. You will receive an
+                email shortly to
                 <strong>{{ order.email }}</strong> confirming your purchase. </p>
         </div>
     </div>
     <div class="row">
         <div class="col">
             <div class="row">
-                <div class="col-12">
-                    <small class="shadows-font">Order Info:</small>
+                <div class="col">
+                    <p><small class="shadows-font bold-font">Order Info:</small>
+                        {{ order.order_number }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    
+                    <p><small class="shadows-font bold-font">Order Date: </small>
+                        {{ order.date }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <small class="shadows-font bold-font">Order Details: </small>
+                    {% for item in order.lineitems.all %}
+                    <p>{{ item.product.name }}{% if item.product.platform %} ({{ item.product.platform }}){% endif %}{% if item.product_size %}
+                        - Size: {{ item.product.size }}{% endif %}</p>
+                    <p>Qty: {{ item.quantity }}</p>
+                    <p>£{{ item.product.price }} Each</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <small class="shadows-font bold-font" >Delivery Address: </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p><small class="shadows-font bold-font" >Full Name: </small>{{ order.full_name }}</p>
+                    <p><small class="shadows-font bold-font" >Address 1: </small>{{ order.first_address_line }}</p>
+                    <p><small class="shadows-font bold-font" >Address 2: </small>{{ order.second_address_line }}</p>
+                    <p><small class="shadows-font bold-font" >Town or City: </small>{{ order.city }}</p>
+                    <p><small class="shadows-font bold-font" >County: </small>{{ order.county }}</p>
+                    <p><small class="shadows-font bold-font" >Postcode: </small>{{ order.postcode }}</p>
+                    <p><small class="shadows-font bold-font" >Country: </small>{{ order.country }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <small class="shadows-font bold-font">Contact Info: </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p><small class="shadows-font bold-font">Mobile Number: </small>{{ order.mob_number }}</p>
+                    <p><small class="shadows-font bold-font">Email: </small>{{ order.email }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <small class="shadows-font bold-text">Grand Total</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p><small class="shadows-font bold-text">Delivery Cost: </small>{{ order.delivery }}</p>
+                    <p><small class="shadows-font bold-text">Order Total: </small>{{ order.order_total }}</p>
+                    <p><small class="shadows-font bold-text">Grand Total: </small>{{ order.grand_total }}</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 </div>
 
