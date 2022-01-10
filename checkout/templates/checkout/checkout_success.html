@@ -27,7 +27,7 @@
                 <strong>{{ order.email }}</strong> confirming your purchase. </p>
         </div>
     </div>
-    <div class="row">
+    <div class="row order-conf-text">
         <div class="col">
             <div class="row">
                 <div class="col">
@@ -49,7 +49,7 @@
                         ({{ item.product.platform }}){% endif %}{% if item.product_size %}
                         - Size: {{ item.product.size }}{% endif %}</p>
                     <p class="no-margin">Qty: {{ item.quantity }}</p>
-                    <p class="no-margin">£{{ item.product.price }} Each</p>
+                    <p class="">£{{ item.product.price }} Each</p>
                     {% endfor %}
                 </div>
             </div>
@@ -71,7 +71,7 @@
                     <p class="no-margin"><small class="shadows-font bold-font">County: </small>{{ order.county }}</p>
                     <p class="no-margin"><small class="shadows-font bold-font">Postcode: </small>{{ order.postcode }}
                     </p>
-                    <p class="no-margin"><small class="shadows-font bold-font">Country: </small>{{ order.country }}</p>
+                    <p class=""><small class="shadows-font bold-font">Country: </small>{{ order.country }}</p>
                 </div>
             </div>
             <div class="row">
@@ -83,21 +83,21 @@
                 <div class="col">
                     <p class="no-margin"><small class="shadows-font bold-font">Mobile Number:
                         </small>{{ order.mob_number }}</p>
-                    <p class="no-margin"><small class="shadows-font bold-font">Email: </small>{{ order.email }}</p>
+                    <p class=""><small class="shadows-font bold-font">Email: </small>{{ order.email }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <small class="shadows-font bold-text">Grand Total</small>
+                    <small class="shadows-font bold-font">Grand Total</small>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <p class="no-margin"><small class="shadows-font bold-text">Delivery Cost:
+                    <p class="no-margin"><small class="shadows-font bold-font">Delivery Cost:
                         </small>{{ order.delivery }}</p>
-                    <p class="no-margin"><small class="shadows-font bold-text">Order Total:
+                    <p class="no-margin"><small class="shadows-font bold-font">Order Total:
                         </small>{{ order.order_total }}</p>
-                    <p class="no-margin"><small class="shadows-font bold-text">Grand Total:
+                    <p class=""><small class="shadows-font bold-font">Grand Total:
                         </small>{{ order.grand_total }}</p>
                 </div>
             </div>
