@@ -21,104 +21,103 @@
         </div>
     </div>
     <div class="row">
-        <div class="row">
-            <div class="col-md-6 offset-md-1 col-12 order-md-last justify-content-md-end justify-content-center d-flex">
-                <div class="sort-select-wrapper">
-                    <select name="" id="sort-selector"
-                        class="custom-select custom-select-sm rounded-0 border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
-                        </option>
-                        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
-                            (low to high)</option>
-                        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
-                            (high to low)</option>
-                        <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>
-                            Rating (low to high)</option>
-                        <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>
-                            Rating (high to low)</option>
-                        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
-                            (A-Z)</option>
-                        <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
-                            (Z-A)</option>
-                        <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>
-                            Category (A-Z)</option>
-                        <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
-                            Category (Z-A)</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 order-md-first justify-content-md-start d-flext">
-                <p class="text-muted mt-3 text-center text-md-left">
-                    {% if search_term or current_categories or current_sorting != 'None_None' %}
-                    <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
-                    {% endif %}
-                    {{ products|length }} Products{% if search_term %} found for
-                    <strong>"{{ search_term }}"</strong>{% endif %}
-                </p>
+        <div class="col-md-6 offset-md-1 col-12 order-md-last justify-content-md-end justify-content-center d-flex">
+            <div class="sort-select-wrapper">
+                <select name="" id="sort-selector"
+                    class="custom-select custom-select-sm rounded-0 border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
+                    </option>
+                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
+                        (low to high)</option>
+                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
+                        (high to low)</option>
+                    <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>
+                        Rating (low to high)</option>
+                    <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>
+                        Rating (high to low)</option>
+                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
+                        (A-Z)</option>
+                    <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
+                        (Z-A)</option>
+                    <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>
+                        Category (A-Z)</option>
+                    <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
+                        Category (Z-A)</option>
+                </select>
             </div>
         </div>
-        <div class="row">
-            <div class="col-10 offset-1">
-                <div class="row ">
-                    {% for product in products %}
-                    <div class="col-xl-3 col-xxl-2 col-lg-4 col-sm-6 mt-3 mb-3">
-                        <div class="card border-0 h-100">
-                            {% if product.image %}
-                            <a href="{% url 'product_detail' product.id %}" class="mx-auto">
-                                <img src="{{ product.image.url }}" class="card-image card-img-top img-fluid"
-                                    alt="{{ product.name }}">
-                            </a>
-                            {% else %}
-                            <a href="{% url 'product_detail' product.id %}" class="mx-auto">
-                                <img src="{{ MEDIA_URL }}no-image.jpg" class="card-image card-img-top img-fluid"
-                                    alt="{{ product.name }}">
-                            </a>
-                            {% endif %}
+        <div class="col-12 col-md-6 order-md-first">
+            <p class="text-muted mt-3 text-center text-md-left">
+                {% if search_term or current_categories or current_sorting != 'None_None' %}
+                <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                {% endif %}
+                {{ products|length }} Products{% if search_term %} found for
+                <strong>"{{ search_term }}"</strong>{% endif %}
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="row ">
+                {% for product in products %}
+                <div class="col-xl-3 col-xxl-2 col-lg-4 col-sm-6 mt-3 mb-3">
+                    <div class="card border-0 h-100">
+                        {% if product.image %}
+                        <a href="{% url 'product_detail' product.id %}" class="mx-auto">
+                            <img src="{{ product.image.url }}" class="card-image card-img-top img-fluid"
+                                alt="{{ product.name }}">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'product_detail' product.id %}" class="mx-auto">
+                            <img src="{{ MEDIA_URL }}no-image.jpg" class="card-image card-img-top img-fluid"
+                                alt="{{ product.name }}">
+                        </a>
+                        {% endif %}
 
-                            <div class="card-body text-center">
-                                <a href="" class="text-black">
-                                    <strong>
-                                        <p class="card-text">{{ product.name }}{% if product.platform != null %}
-                                            ({{ product.platform }}){% endif %}</p>
-                                    </strong>
-                                </a>
-                                <small>{% if product.category.name == 'video_games' %}PEGI Rating:
-                                    {{ product.age_rating }}{% elif product.category.name == 'board_games' %}For
-                                    Ages:
-                                    {{ product.age_rating }}{% else %}Age Rating: N/A{% endif %}</small>
-                            </div>
-                            <div class="card-footer bg-white">
-                                <div class="row">
-                                    <div class="col">
-                                        <p><small><i class="fas fa-wallet"></i></small> £{{ product.price }}</p>
-                                        <a href="" class="text-black unstyled">
-                                            <p><small><i class="fas fa-tag"></i></small>
-                                                {{ product.category.friendly_name }}</p>
-                                        </a>
-                                        <p><small><i class="fas fa-star"></i> Rating:</small> {{ product.rating }} /
-                                            5
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <a href="" class="btn btn-danger fjalla-font text-uppercase">
-                                        <strong>Add To Basket</strong>
-                                    </a>
-                                </div>
-                            </div>
-
+                        <div class="card-body text-center">
+                            <a href="" class="text-black">
+                                <strong>
+                                    <p class="card-text">{{ product.name }}{% if product.platform != null %}
+                                        ({{ product.platform }}){% endif %}</p>
+                                </strong>
+                            </a>
+                            <small>{% if product.category.name == 'video_games' %}PEGI Rating:
+                                {{ product.age_rating }}{% elif product.category.name == 'board_games' %}For
+                                Ages:
+                                {{ product.age_rating }}{% else %}Age Rating: N/A{% endif %}</small>
                         </div>
-                    </div>
-                    {% endfor %}
+                        <div class="card-footer bg-white">
+                            <div class="row">
+                                <div class="col">
+                                    <p><small><i class="fas fa-wallet"></i></small> £{{ product.price }}</p>
+                                    <a href="" class="text-black unstyled">
+                                        <p><small><i class="fas fa-tag"></i></small>
+                                            {{ product.category.friendly_name }}</p>
+                                    </a>
+                                    <p><small><i class="fas fa-star"></i> Rating:</small> {{ product.rating }} /
+                                        5
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a href="" class="btn btn-danger fjalla-font text-uppercase">
+                                    <strong>Add To Basket</strong>
+                                </a>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
+                {% endfor %}
+
             </div>
         </div>
+    </div>
 
-        {% endblock %}
+    {% endblock %}
 
-        {% block postload.js %}
+    {% block postload.js %}
 
 
 
-        {% endblock %}
+    {% endblock %}

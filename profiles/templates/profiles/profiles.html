@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bag_tools %}
-{% load crispy_forms_tags %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -25,7 +23,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 col-10 offset-1">
+        <div class="col-md-5 col-10 offset-md-1 offset-1">
             <h4 class="shadows-font">Default Delivery Address</h4>
             <form action="{% url 'profile' %}" method="POST">
                 {% csrf_token %}
@@ -35,14 +33,46 @@
                 </button>
             </form>
         </div>
-        <div class="col-md-6 col-10 offset-1">
+        <div class="col-md-5 col-10">
             <p>Order History</p>
-            <form action="">
-                {{ orders }}
-            </form>
+            <table class="order-history-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Order Number</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Items</th>
+                        <th scope="col">Grand Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                {{ order.order_number|truncatechars:6 }}
+                            </a>
+                        </td>
+                        <td>{{ order.date }}</td>
+                        <td>
+                            <ul>
+                                {% for item in order.lineitems.all %}
+                                <li class="small">
+                                    {{ item.product.name}}
+                                    {% if item.product.has_sizes %}
+                                    Size: {{ Item.product.size }}
+                                    {% endif %}
+                                    x {{ item.quantity}}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>£{{ order.grand_total }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 
 
-{% endblock %}
-
+    {% endblock %}

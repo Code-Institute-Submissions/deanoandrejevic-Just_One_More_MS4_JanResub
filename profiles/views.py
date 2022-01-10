@@ -8,6 +8,8 @@ from checkout.models import Order
 
 # Create your views here.
 
+
+@login_required()
 def profile(request):
 
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -27,8 +29,19 @@ def profile(request):
     template = 'profiles/profiles.html'
     context = {
         'form': form,
-        'profile': profile,
         'orders': orders,
+    }
+
+    return render(request, template, context)
+
+
+def order_history(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'order': order,
+        'from_profile': True,   
     }
 
     return render(request, template, context)
