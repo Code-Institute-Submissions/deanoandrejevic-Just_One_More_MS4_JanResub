@@ -3,9 +3,11 @@
         <div class="justify-content-center" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item px-4">
+                    {% if user.is_superuser %}
                     <a class="nav-link text-dark shadows-font" href="{% url 'products' %}">
                         <h2><strong>All Products</strong></h2>
                     </a>
+                    {% endif %}
                 </li>
                 <li class="nav-item dropdown px-4">
                     <a class="nav-link text-dark shadows-font" href="#" id="music_id" data-bs-toggle="dropdown"
@@ -42,27 +44,25 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown px-4">
-                    <a class="nav-link text-dark shadows-font" href="#" id="music_id" data-bs-toggle="dropdown"
+                    <a class="nav-link text-dark shadows-font" href="#" id="clothing_id" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <h2><strong>Clothing</strong></h2>
                     </a>
-                    <div class="dropdown-menu text-dark" aria-labelledby="music_id">
-                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=platform&direction=asc">By Platform</a>
-                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=rating&direction=asc">By Rating</a>
-                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=genre&direction=asc">By Genre</a>
-                        <a class="dropdown-item" href="{% url 'products' %}?category=music">All Music</a>
+                    <div class="dropdown-menu text-dark" aria-labelledby="clothing_id">
+                        <a class="dropdown-item" href="{% url 'products' %}?category=clothing&sort=price&direction=asc">By Price</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=clothing&sort=rating&direction=asc">By Rating</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=clothing">All Clothing</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown px-4">
-                    <a class="nav-link text-dark shadows-font" href="#" id="music_id" data-bs-toggle="dropdown"
+                    <a class="nav-link text-dark shadows-font" href="#" id="gadget_id" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <h2><strong>Technology</strong></h2>
+                        <h2><strong>Gadgets</strong></h2>
                     </a>
-                    <div class="dropdown-menu text-dark" aria-labelledby="music_id">
-                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=platform&direction=asc">By Platform</a>
-                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=rating&direction=asc">By Rating</a>
-                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=genre&direction=asc">By Genre</a>
-                        <a class="dropdown-item" href="{% url 'products' %}?category=music">All Music</a>
+                    <div class="dropdown-menu text-dark" aria-labelledby="gadget_id">
+                        <a class="dropdown-item" href="{% url 'products' %}?category=gadgets&sort=price&direction=asc">By Platform</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=gadgets&sort=rating&direction=asc">By Rating</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=gadgets">All Gadgets</a>
                     </div>
                 </li>
             </ul>
