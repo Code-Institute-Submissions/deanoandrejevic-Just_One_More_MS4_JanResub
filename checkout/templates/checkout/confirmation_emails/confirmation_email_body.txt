@@ -3,7 +3,7 @@ Hello {{ order.full_name }}
 Thank you for shopping with Just One More.
 
 Your Order
-{{ order.product.image }}
+{{ order.order_number }}
 {{ order.product.name }}
 {{ order.product.description }}
 

@@ -38,7 +38,7 @@ class StripeWH_Handler:
     def handle_event(self, event):
 
         return HttpResponse(
-            content=f'Unhandled Webhook recieved: {event["type"]}',
+            content=f'Unhandled Webhook received: {event["type"]}',
             status=200
         )
 
