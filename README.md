@@ -41,6 +41,11 @@ since my first project however and I have added a lot of back-end trickery that 
 During the development of the site I used SQLite3
 Once deployed it was changed over to PostgresSQL which is provided by heroku
 
+The database is from multiple apps and has models relevant to what is needed for things like, users, products and reviews.
+These are my database tables and my Database ER Diagram
+
+[]
+
 ## Profile App
 
 ### UserProfile model
@@ -124,3 +129,45 @@ Product | product | ForeignKey | Product, related_name='reviews', on_delete=mode
 Date | date | DateTimeField | auto_now_add=True
 User Review | user_review | TextField | max_length=500, blank=True
 Rating | rate | PositiveSmallIntegerField | choices=ONE_TO_FIVE
+
+# Features
+
+## Implemented Features
+
+1. Register an account.
+2. Login to said account.
+3. Log out of the account
+4. Reset Password if needed
+5. Reset Email if needed
+6. **SUPER USER ONLY** Add a new product
+7. **SUPER USER ONLY** Edit a product
+8. **SUPER USER ONLY** Delete a product
+9. Search for an item
+10. Filter products by name, price, a-z etc..
+11. Review a product and see said review.
+12. Toasts so the user knows when they perform certain tasks like adding to basket
+13. Live updating basket with order total
+14. The ability to save information from the payment page.
+15. Secure checkout and order confirmation generation
+16. Sending real emails to customer
+
+## To be implemented
+
+1. To be able to remove your user reviews unless your the superuser where you can delete any of them
+2. Carousel to implemented on the front page to show more products, easy to do just wanted to get the site functional first
+
+# Wireframes
+
+![Home_Page](/README_IMAGES/just_one_more_home.jpeg)
+
+![Product_page](/README_IMAGES/just_one_more_product.jpeg)
+
+![Product_detail](/README_IMAGES/just_one_more_productdetails.jpeg)
+
+# Testing
+
+
+
+
+
+
