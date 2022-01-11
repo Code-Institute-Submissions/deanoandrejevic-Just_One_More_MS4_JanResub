@@ -54,31 +54,31 @@
                     <ul class="list-inline text-center list-unstyled">
                         {% if user.is_authenticated %}
                         <li class="list-inline-item">
-                            <a href="{% url 'profile' %}" class="btn btn-light btn-sm my-auto">
-                                <p class="my-0 fjalla-font"><i class="fas fa-user fa-lg"> My Account</i></p>
+                            <a href="{% url 'profile' %}" class="my-0 fjalla-font btn btn-light btn-sm my-auto">
+                                <i class="fas fa-user fa-lg"> My Account</i>
                             </a>
                         </li>
                         {% if request.user.is_superuser %}
                         <li class="list-inline-item">
-                            <a href="{% url 'add_product' %}" class="btn btn-light btn-sm my-auto">
-                                <p class="my-0 fjalla-font"><i class="fas fa-plus fa-lg"> Account Management</i></p>
+                            <a href="{% url 'add_product' %}" class="my-0 fjalla-font btn btn-light btn-sm my-auto">
+                                <i class="fas fa-plus fa-lg"> Account Management</i>
                             </a>
                         </li>
                         {% endif %}
                         <li class="list-inline-item">
-                            <a href="{% url 'account_logout' %}" class="btn btn-dark btn-sm my-auto">
-                                <p class="my-0 fjalla-font"><i class="fas fa-sign-in-alt"> Log Out</i></p>
+                            <a href="{% url 'account_logout' %}" class="my-0 fjalla-font btn btn-dark btn-sm my-auto">
+                            <i class="fas fa-sign-in-alt"> Log Out</i>
                             </a>
                         </li>
                         {% else %}
                         <li class="list-inline-item">
-                            <a href="{% url 'account_signup' %}" class="btn btn-dark btn-sm my-auto">
-                                <p class="my-0 fjalla-font"><i class="fas fa-user"> Register</i></p>
+                            <a href="{% url 'account_signup' %}" class="fjalla-font btn btn-dark btn-sm my-auto">
+                                <i class="fas fa-user"> Register</i>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="{% url 'account_login' %}" class="btn btn-light btn-sm my-auto">
-                                <p class="my-0 fjalla-font"><i class="fas fa-sign-in-alt"> Sign in</i></p>
+                            <a href="{% url 'account_login' %}" class="fjalla-font btn btn-light btn-sm my-auto">
+                                <i class="fas fa-sign-in-alt"> Sign in</i>
                             </a>
                         </li>
                         {% endif %}
