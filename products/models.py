@@ -53,4 +53,4 @@ class Review(models.Model):
     rate = models.PositiveSmallIntegerField(choices=ONE_TO_FIVE)
 
     def __str__(self):
-        return self.rate
+        return self.user.username
