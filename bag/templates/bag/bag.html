@@ -14,13 +14,13 @@
 
 <div class="overlay"></div>
 
-<div class="col-10 offset-1 mt-2">
+<div class="container-fluid col-10 offset-1 mt-2">
     <div class="row">
         <h1 class="text-danger text-center fjalla-font">Shopping Bag
             <hr>
         </h1>
         {% if bag_items %}
-        <div class="col-6">
+        <div class="col-12 col-md-6">
             <h2 class="text-center mt-2 mx-auto fjalla-font text-danger">Contents</h2>
             {% for item in bag_items %}
             <div class="row">
@@ -65,7 +65,7 @@
             </div>
             {% endfor %}
         </div>
-        <div class="col-6">
+        <div class="col-12 col-md-6">
             <h2 class="text-center mt-2 fjalla-font text-danger">Checkout</h2>
             <h2 class="text-center mt-4"><strong class="fjalla-font text-danger">Delivery:</strong> £{{ delivery }}</h2>
             <h2 class="text-center"><strong class="fjalla-font text-danger">Grand Total:</strong>

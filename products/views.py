@@ -75,12 +75,10 @@ def product_detail(request, product_id):
     """
 
     product = get_object_or_404(Product, pk=product_id)
-    reviews = Review.objects.filter(product=product)
     form = ReviewForm()
 
     context = {
         'product': product,
-        'reviews': reviews,
         'form': form,
     }
 
@@ -162,25 +160,22 @@ def product_review(request, product_id):
     This is for user reviews on specific products
     """
     product = get_object_or_404(Product, pk=product_id)
-    user = request.user
-
-    if request.method == "POST":
+    if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
-            rate = form.save(commit=False)
-            rate.user = user
-            rate.product = product
-            rate.save()
+            review = form.save(commit=False)
+            review.user = request.user
+            review.product = product
+            review.save()
             messages.success(request, 'User Review Successful')
             return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'Review form failed')
     else:
         form = ReviewForm()
 
-    template = 'products/product_detail_review.html'
-
     context = {
-        'form': form,
-        'product': product,
+        'form': form
     }
 
-    return render(request, template, context)
+    return render(request, context)

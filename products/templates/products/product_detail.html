@@ -39,7 +39,6 @@
             <small>Genre | {{ product.genre }}</small>
             <br>
             {% endif %}
-            <small>Rating:  / 5</small><small> <a href="{% url 'product_review' product.id %}">Leave a Review?</a></small>
             <hr>
             <h4>Price: <strong class="fjalla-font text-danger">£{{ product.price }}</strong></h4>
             <hr>
@@ -86,10 +85,64 @@
             </div>
         </div>
     </div>
-</div>
 
-{% endblock %}
+    <div class="row mt-3">
+        {% if product.reviews.all %}
+        <div class="row">
+            <div class="col-12 col-sm-6 offset-3 mt-3 ">
+                <h1 class="fjalla-font text-danger text-center">
+                    <strong>User Reviews</strong>
+                </h1>
+                {% for review in product.reviews.all %}
+                <div class="col-xl-3 col-xxl-2 col-lg-4 col-sm-6 mt-3 mb-3">
+                    <div class="card border-1 h-100">
+                        <div class="card-body text-center">
+                            <strong>
+                                <h5 class="text-danger fjalla-font">User Review:</h5>
+                            </strong>
+                            <p class="card-text">{{ review.review }}</p>
+                            <p><small><i class="fas fa-star"></i> Rating:</small> {{ review.rate }} /
+                                5
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white">
+                            <div class="row">
+                                <div class="col">
+                                    <p>Reviewed by: <small>{{ review.user }}</small></p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {% endfor %}
+            {% endif %}
+            {% if user.is_authenticated %}
+            <div class="row">
+                <div class="col-12 col-sm-6 offset-3 ">
+                    <h1 class="fjalla-font text-danger text-center">
+                        <strong>Leave a Review</strong>
+                    </h1>
+                    <form method="POST" action="{% url 'product_review' product.id %}">
+                        {% csrf_token %}
+                        {{ form.user_review | as_crispy_field }}
+                        {{ form.rate | as_crispy_field }}
+                        <button class="btn-danger btn-lg btn white-text" type="submit">
+                            Submit Review
+                        </button>
+                        <a class="btn btn-dark btn-lg text-white" href="{% url 'product_detail' product.id %}">Back to
+                            Product</a>
+                    </form>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
 
-{% block postloadjs %}
-{{ block.super }}
-{% endblock %}
+    {% endblock %}
+
+    {% block postloadjs %}
+    {{ block.super }}
+    {% endblock %}
