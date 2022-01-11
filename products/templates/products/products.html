@@ -16,8 +16,8 @@
         <div class="col text-center">
             <h1 class="fjalla-font text-danger">
                 Products
-                <hr>
             </h1>
+            <hr>
         </div>
     </div>
     <div class="row">
@@ -30,7 +30,7 @@
                     {{ products|length }} Products{% if search_term %} found for
                     <strong>"{{ search_term }}"</strong>{% endif %}
                 </p>
-                <select name="" id="sort-selector"
+                <select name="sort" id="sort-selector"
                     class="custom-select custom-select-sm rounded-0 border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                     <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
                     </option>
@@ -84,9 +84,11 @@
                         <div class="card-footer bg-white">
                             <div class="row">
                                 <div class="col">
-                                    <p><small><i class="fas fa-wallet"></i></small> £{{ product.price }}</p>
+                                    <small><i class="fas fa-wallet"></i></small>
+                                    <p> £{{ product.price }}</p>
                                     <a href="" class="text-black unstyled">
-                                        <p><small><i class="fas fa-tag"></i></small>
+                                        <small><i class="fas fa-tag"></i></small>
+                                        <p>
                                             {{ product.category.friendly_name }}</p>
                                     </a>
                                 </div>
