@@ -105,11 +105,19 @@
                         </small>{{ order.grand_total }}</p>
                 </div>
             </div>
+            {% if user.is_authenticated %}
             <div class="row">
                 <div class="col">
                     <a class="btn btn-danger btn-lg fjalla-font" href="{% url 'profile' %}">Back to Profile</a>
                 </div>
             </div>
+            {% else %}
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-danger btn-lg fjalla-font" href="{% url 'products' %}">Back to Profile</a>
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
