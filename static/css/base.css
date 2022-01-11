@@ -111,3 +111,10 @@ html {
         padding-top: 80px;
     }
 }
+
+@media (max-width: 991px) {
+    .card-image-detail {
+        height: 450px;
+        width: 275px;
+    }
+}

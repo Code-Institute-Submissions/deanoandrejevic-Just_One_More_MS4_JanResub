@@ -3,6 +3,7 @@ from .models import Product, Category, Review
 
 # Register your models here.
 
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'sku',
@@ -20,6 +21,7 @@ class CategoryAdmin(admin.ModelAdmin):
         'friendly_name',
         'name',
     )
+
 
 class ReviewAdmin(admin.ModelAdmin):
     list_display = (
