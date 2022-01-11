@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
+from decimal import Decimal
 
 # Create your models here.
 
@@ -33,3 +36,27 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+ONE_TO_FIVE = [
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5'),
+]
+
+
+class Review(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    user_review = models.TextField(max_length=500, blank=True)
+    rate = models.PositiveSmallIntegerField(choices=ONE_TO_FIVE)
+
+    def __str__(self):
+        return self.user.username
+
+class Rating(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    review = models.ForeignKey(Review, on_delete=models.CASCADE)
