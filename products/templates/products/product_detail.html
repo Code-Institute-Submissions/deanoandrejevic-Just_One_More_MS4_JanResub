@@ -15,13 +15,13 @@
     <div class="row">
         <div class="col-lg-4 col-xl-5 col-sm-10 mt-3">
             {% if product.image %}
-            <a href="" class="mx-auto">
-                <img src="{{ product.image.url }}" target="_blank" class="card-image-detail card-img-top"
+            <a href="" class="mx-auto" target="_blank">
+                <img src="{{ product.image.url }}"  class="card-image-detail card-img-top"
                     alt="{{ product.name }}">
             </a>
             {% else %}
             <a href="" class="mx-auto">
-                <img src="{{ MEDIA_URL }}no-image.jpg" target="_blank" class="card-image-detail card-img-top"
+                <img src="{{ MEDIA_URL }}no-image.jpg"  class="card-image-detail card-img-top"
                     alt="{{ product.name }}">
             </a>
             {% endif %}
@@ -33,7 +33,7 @@
                 {{ product.age_rating }}{% elif product.category.name == 'board_games' %}For Ages:
                 {{ product.age_rating }}{% elif product.category.name == 'music' %} Advisory:
                 {{ product.age_rating }}{% else %}Age Rating: N/A{% endif %} | <a href="#" class="text-dark"><i
-                        class="fas fa-tag"></i> {{ product.category.friendly_name }}</p>
+                        class="fas fa-tag"></i> {{ product.category.friendly_name }}</a>
             </a>
             {% if product.category.name == 'music' %}
             <small>Genre | {{ product.genre }}</small>
