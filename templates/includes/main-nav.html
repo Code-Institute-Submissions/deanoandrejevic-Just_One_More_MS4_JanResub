@@ -2,13 +2,13 @@
     <div class="container-fluid justify-content-center">
         <div class="justify-content-center" id="navbarNavDropdown">
             <ul class="navbar-nav">
+                {% if user.is_superuser %}
                 <li class="nav-item px-4">
-                    {% if user.is_superuser %}
                     <a class="nav-link text-dark shadows-font" href="{% url 'products' %}">
                         <h2><strong>All Products</strong></h2>
-                    </a>
-                    {% endif %}
+                    </a>   
                 </li>
+                {% endif %}
                 <li class="nav-item dropdown px-4">
                     <a class="nav-link text-dark shadows-font" href="#" id="music_id" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
