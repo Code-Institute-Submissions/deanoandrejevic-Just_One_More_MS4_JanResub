@@ -5,6 +5,10 @@ from .models import Order, OrderLineItem
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
+    """
+    This is the details of what the admin will see in
+    the admin page
+    """
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 

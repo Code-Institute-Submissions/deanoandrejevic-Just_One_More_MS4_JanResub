@@ -9,6 +9,9 @@ from django_countries.fields import CountryField
 
 
 class UserProfile(models.Model):
+    """
+    This class is for the generation of the profile details
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_mob_number = models.CharField(max_length=15, null=True, blank=True)
     default_first_address_line = models.CharField(

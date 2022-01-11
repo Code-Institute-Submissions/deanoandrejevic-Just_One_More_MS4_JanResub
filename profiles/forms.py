@@ -3,6 +3,10 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """
+    This will generate the relevant field for the user to
+    submit delivery details
+    """
     class Meta:
         model = UserProfile
         exclude = ('user',)

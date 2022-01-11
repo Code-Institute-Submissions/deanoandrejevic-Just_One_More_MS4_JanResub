@@ -3,7 +3,9 @@ from django.contrib.auth.models import User
 
 
 class Category(models.Model):
-
+    """
+    class category models view for the admin
+    """
     class Meta:
         verbose_name_plural = 'Categories'
 
@@ -18,6 +20,9 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    """
+    class product models view for the admin
+    """
     category = models.ForeignKey('Category', null=True, blank=True,
                                  on_delete=models.SET_NULL)
     sku = models.CharField(max_length=256, null=True, blank=True)
@@ -45,6 +50,9 @@ ONE_TO_FIVE = [
 
 
 class Review(models.Model):
+    """
+    class reviews models view for the admin
+    """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, related_name='reviews',
                                 on_delete=models.CASCADE)

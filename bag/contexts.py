@@ -5,7 +5,10 @@ from products.models import Product
 
 
 def bag_contents(request):
-
+    """
+    This is what will be added to the session
+    cookie and retrieved later on
+    """
     bag_items = []
     total = 0
     product_count = 0

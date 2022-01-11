@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (render, redirect,
+                              reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -18,6 +19,10 @@ import stripe
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    This saves the info of the checkout like payment id to
+    displayed to the admin
+    """
     try:
         payment_id = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -145,7 +150,8 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-
+    This will take some of the cached data and display a
+    confirmation page for the user to get more details
     """
     save_info = request.session.get('save-info')
     order = get_object_or_404(Order, order_number=order_number)

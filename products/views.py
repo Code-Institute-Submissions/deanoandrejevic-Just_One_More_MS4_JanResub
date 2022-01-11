@@ -13,7 +13,7 @@ from .forms import ProductForm, ReviewForm
 def products(request):
     """
     This view will show all the products as well as search
-    querys and sorting results
+    queries and sorting results
     """
 
     query = None
@@ -69,7 +69,7 @@ def products(request):
 
 def product_detail(request, product_id):
     """
-    This view will show indiviual product pages depending on which
+    This view will show individual product pages depending on which
     product was clicked on. This will display much more detail the
     product view
     """
@@ -87,7 +87,9 @@ def product_detail(request, product_id):
 
 @login_required
 def add_product(request):
-    """ Add a product to the shop """
+    """
+    Add a product to the shop
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry you need to be a super user to do that')
         return redirect(reverse('home'))
@@ -114,7 +116,9 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
-    """ Edit a product in the shop """
+    """
+    Edit a product in the shop
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry you need to be a super user to do that')
         return redirect(reverse('home'))
