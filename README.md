@@ -418,3 +418,14 @@ web: gunicorn name_of_application.wsgi:application
 * To host static and media files you will need an AWS S3 Bucket. 
   - You will need to create an account and create an S3 bucket. From here set up a group, a policy and user in the IAM environment. 
   - For further detail on these parameters and a deeper explanation you can find out more [here](https://aws.amazon.com/s3/).
+
+# Credits
+
+### Media and Products
+- The product descriptions were taken from the specific product pages
+- The product images were mostly taken from [Amazon](https://amazon.com) and [EMP](https://emp.co.uk), some products were found elsewhere.
+
+### Acknowledgments
+- I would like to thank the Code Institute, I haven't been the most ideal student where I haven't used the resources given to me but when when I have required help they have been there to help. This project is heavily influenced the walk through project "Boutique Ado" and has been adapted where needed. Thank you again for a stressful, fun and educational year
+- I would also like to thank my girlfriend Megan Cox, she has been a driving force in giving me to motivation to carry on even when I was convinced I couldn't do. Thank you.
+
