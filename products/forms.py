@@ -28,7 +28,3 @@ class ReviewForm(forms.ModelForm):
             'user_review': 'Review',
             'rate' : 'Rating'
         }
-
-        for field in self.fields:
-            placeholder = placeholders[field]
-            self.fields[field].label = False

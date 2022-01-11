@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category
-from .forms import ProductForm
+from .models import Product, Category, Review, Rating
+from .forms import ProductForm, ReviewForm
 
 # Create your views here.
 
@@ -151,3 +151,31 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+def product_review(request, product_id):
+    """
+    This is for user reviews on specific products
+    """
+    product = get_object_or_404(Product, pk=product_id)
+    user = request.user
+
+    if request.method == "POST":
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            rate = form.save(commit=False)
+            rate.user = user
+            rate.product = product
+            rate.save()
+            message.success(request, 'User Review Successful')
+            return redirect(reverse('product_detail', args=[product.id]))
+    else:
+        form = ReviewForm()
+
+    template = 'products/product_detail_review.html'
+
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)

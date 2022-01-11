@@ -39,7 +39,7 @@
             <small>Genre | {{ product.genre }}</small>
             <br>
             {% endif %}
-            <small>Rating: {{ product.rating }} / 5</small>
+            <small>Rating: {{ product.rating }} / 5</small><small> <a href="{% url 'product_review' product.id %}">Leave a Review?</a></small>
             <hr>
             <h4>Price: <strong class="fjalla-font text-danger">£{{ product.price }}</strong></h4>
             <hr>
