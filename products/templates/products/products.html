@@ -70,11 +70,9 @@
                         {% endif %}
 
                         <div class="card-body text-center">
-                            <a href="" class="text-black">
-                                <strong>
-                                    <p class="card-text">{{ product.name }}{% if product.platform != null %}
-                                        ({{ product.platform }}){% endif %}</p>
-                                </strong>
+                            <a href="{% url 'product_detail' product.id %}" class="text-black">
+                                <p class="card-text"><strong>{{ product.name }}{% if product.platform != null %}
+                                        ({{ product.platform }}){% endif %}</strong></p>
                             </a>
                             <small>{% if product.category.name == 'video_games' %}PEGI Rating:
                                 {{ product.age_rating }}{% elif product.category.name == 'board_games' %}For
@@ -107,7 +105,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     $('#sort-selector').change(function () {
         var selector = $(this);
         var currentUrl = new URL(window.location);
