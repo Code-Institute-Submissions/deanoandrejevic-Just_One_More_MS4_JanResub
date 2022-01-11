@@ -22,7 +22,7 @@ class UserProfile(models.Model):
         blank_label='Country', null=True, blank=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user.user
 
 
 @receiver(post_save, sender=User)

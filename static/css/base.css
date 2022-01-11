@@ -1,4 +1,4 @@
-/* Webwide styling */
+/* Web Wide styling */
 
 * {
     margin: 0;
@@ -104,7 +104,7 @@ html {
     height: 2px;
 }
 
-/* Media Quries */
+/* Media Queries */
 
 @media (max-width: 991px)  {
     .header-container {

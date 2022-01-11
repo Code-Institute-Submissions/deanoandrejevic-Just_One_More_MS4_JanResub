@@ -1,10 +1,11 @@
 from django.contrib import admin
 from .models import Product, Category, Review
 
-# Register your models here.
-
 
 class ProductAdmin(admin.ModelAdmin):
+    """
+    This class will use list_display for what to display in Product Admin
+    """
     list_display = (
         'sku',
         'category',
@@ -17,6 +18,9 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
+    """
+    This class will use list_display for what to display in Category Admin
+    """
     list_display = (
         'friendly_name',
         'name',
@@ -24,6 +28,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class ReviewAdmin(admin.ModelAdmin):
+    """
+    This class will use list_display for what to display in Review Admin
+    """
     list_display = (
         'user_review',
         'rate',

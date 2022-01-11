@@ -19,7 +19,7 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Updated Successful.")
-        else: 
+        else:
             messages.error(request, "Updated Failed")
     else:
         form = UserProfileForm(instance=profile)

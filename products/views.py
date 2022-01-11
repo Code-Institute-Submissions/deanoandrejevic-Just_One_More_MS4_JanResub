@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q, Avg, Func
+from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category, Review, Rating
+from .models import Product, Category, Review
 from .forms import ProductForm, ReviewForm
 
 # Create your views here.
@@ -110,7 +110,7 @@ def add_product(request):
     context = {
         'form': form,
     }
-    
+
     return render(request, template, context)
 
 
@@ -156,6 +156,7 @@ def delete_product(request, product_id):
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
 
+
 def product_review(request, product_id):
     """
     This is for user reviews on specific products
@@ -170,7 +171,7 @@ def product_review(request, product_id):
             rate.user = user
             rate.product = product
             rate.save()
-            message.success(request, 'User Review Successful')
+            messages.success(request, 'User Review Successful')
             return redirect(reverse('product_detail', args=[product.id]))
     else:
         form = ReviewForm()

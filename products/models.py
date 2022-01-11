@@ -1,9 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.core.validators import MinValueValidator
-from decimal import Decimal
 
-# Create your models here.
 
 class Category(models.Model):
 
@@ -21,7 +18,8 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey('Category', null=True, blank=True,
+                                 on_delete=models.SET_NULL)
     sku = models.CharField(max_length=256, null=True, blank=True)
     name = models.CharField(max_length=256)
     age_rating = models.CharField(max_length=10, null=True, blank=True)
@@ -54,7 +52,8 @@ class Review(models.Model):
     rate = models.PositiveSmallIntegerField(choices=ONE_TO_FIVE)
 
     def __str__(self):
-        return self.user.username
+        return self.user.user
+
 
 class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
