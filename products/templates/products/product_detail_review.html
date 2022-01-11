@@ -31,7 +31,7 @@
             <h1 class="fjalla-font text-danger text-center">
                 <strong>User Review</strong>
             </h1>
-            <form action="">
+            <form action="{% url 'product_review' product.id %}">
                 {% csrf_token %}
                 {{ form.user_review | as_crispy_field }}
                 {{ form.rate | as_crispy_field }}

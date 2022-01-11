@@ -94,7 +94,7 @@
                                         <p><small><i class="fas fa-tag"></i></small>
                                             {{ product.category.friendly_name }}</p>
                                     </a>
-                                    <p><small><i class="fas fa-star"></i> Rating:</small> {{ product.rating }} /
+                                    <p><small><i class="fas fa-star"></i> Rating:</small> {{ avg_reviews.rate__avg|floatformat:1 }} /
                                         5
                                     </p>
                                 </div>
