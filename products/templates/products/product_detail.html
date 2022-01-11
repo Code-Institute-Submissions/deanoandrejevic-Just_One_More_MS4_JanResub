@@ -27,8 +27,8 @@
             {% endif %}
         </div>
         <div class="col-lg-4 col-xl-5 col-sm-10 mt-3">
-            <h1 class="fjalla-font text-danger"><strong>{{ product.name }} {% if product.platform != null %}
-                    ({{ product.platform }}){% endif %}</strong></h1>
+            <h2 class="fjalla-font text-danger"><strong>{{ product.name }} {% if product.platform != null %}
+                    ({{ product.platform }}){% endif %}</strong></h2>
             <p class="unstyled no-margin">{% if product.category.name == 'video_games' %}PEGI Rating:
                 {{ product.age_rating }}{% elif product.category.name == 'board_games' %}For Ages:
                 {{ product.age_rating }}{% elif product.category.name == 'music' %} Advisory:
@@ -90,9 +90,9 @@
         {% if product.reviews.all %}
         <div class="row">
             <div class="col-12 col-sm-6 offset-3 mt-3 ">
-                <h1 class="fjalla-font text-danger text-center">
+                <h2 class="fjalla-font text-danger text-center">
                     <strong>User Reviews</strong>
-                </h1>
+                </h2>
                 {% for review in product.reviews.all %}
                 <div class="col-xl-3 col-xxl-2 col-lg-4 col-sm-6 mt-3 mb-3">
                     <div class="card border-1 h-100">

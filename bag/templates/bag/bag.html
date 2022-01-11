@@ -16,12 +16,13 @@
 
 <div class="container-fluid col-10 offset-1 mt-2">
     <div class="row">
-        <h1 class="text-danger text-center fjalla-font">Shopping Bag
-            <hr>
-        </h1>
+        <h2 class="text-danger text-center fjalla-font">
+            Shopping Bag
+        </h2>
+        <hr>
         {% if bag_items %}
         <div class="col-12 col-md-6">
-            <h2 class="text-center mt-2 mx-auto fjalla-font text-danger">Contents</h2>
+            <h3 class="text-center mt-2 mx-auto fjalla-font text-danger">Contents</h3>
             {% for item in bag_items %}
             <div class="row">
                 <div class="col-3 offset-1">
@@ -32,7 +33,7 @@
                 {% endif %}
                 </div>
                 <div class="col-8">
-                    <h3 class="mt-4 fjalla-font">{{ item.product.name }}</h3>
+                    <h4 class="mt-4 fjalla-font">{{ item.product.name }}</h4>
                     {% if item.product.platform %}
                     <h5>
                         <small class="text-danger text-uppercase fjalla-font">Platform:</small>
@@ -67,9 +68,9 @@
         </div>
         <div class="col-12 col-md-6">
             <h2 class="text-center mt-2 fjalla-font text-danger">Checkout</h2>
-            <h2 class="text-center mt-4"><strong class="fjalla-font text-danger">Delivery:</strong> £{{ delivery }}</h2>
-            <h2 class="text-center"><strong class="fjalla-font text-danger">Grand Total:</strong>
-                £{{ grand_total|floatformat:2 }}</h2>
+            <h3 class="text-center mt-4"><strong class="fjalla-font text-danger">Delivery:</strong> £{{ delivery }}</h3>
+            <h3 class="text-center"><strong class="fjalla-font text-danger">Grand Total:</strong>
+                £{{ grand_total|floatformat:2 }}</h3>
             <a href="{% url 'products' %}" class="btn-dark btn btn-lg">Keep Shopping</a>
             <a href="{% url 'checkout' %}" class="btn-danger btn btn-lg text-white">Checkout!</a>
         </div>
