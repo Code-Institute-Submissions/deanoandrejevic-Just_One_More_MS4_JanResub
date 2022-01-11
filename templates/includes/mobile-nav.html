@@ -24,11 +24,11 @@
                     </li
                     {% endif %}
                     <li class="nav-item dropdown px-4">
-                        <a class="nav-link text-dark " href="#" id="music_id" data-bs-toggle="dropdown"
+                        <a class="nav-link text-dark " href="#" id="music_id_mobile" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <h2><strong>Music</strong></h2>
                         </a>
-                        <div class="dropdown-menu text-dark" aria-labelledby="music_id">
+                        <div class="dropdown-menu text-dark" aria-labelledby="music_id_mobile">
                             <a class="dropdown-item"
                                 href="{% url 'products' %}?category=music&sort=platform&direction=asc">By Platform</a>
                             <a class="dropdown-item"
@@ -39,11 +39,11 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown px-4">
-                        <a class="nav-link text-dark " href="#" id="video_game_id" data-bs-toggle="dropdown"
+                        <a class="nav-link text-dark " href="#" id="video_game_id_mobile" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <h2><strong>Video Games</strong></h2>
                         </a>
-                        <div class="dropdown-menu text-dark" aria-labelledby="video_game_id">
+                        <div class="dropdown-menu text-dark" aria-labelledby="video_game_id_mobile">
                             <a class="dropdown-item"
                                 href="{% url 'products' %}?category=video_games&sort=rating&direction=asc">By Rating</a>
                             <a class="dropdown-item"
@@ -56,11 +56,11 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown px-4">
-                        <a class="nav-link text-dark " href="#" id="board_game_id" data-bs-toggle="dropdown"
+                        <a class="nav-link text-dark " href="#" id="board_game_id_mobile" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <h2><strong>Board Games</strong></h2>
                         </a>
-                        <div class="dropdown-menu text-dark" aria-labelledby="board_game_id">
+                        <div class="dropdown-menu text-dark" aria-labelledby="board_game_id_mobile">
                             <a class="dropdown-item"
                                 href="{% url 'products' %}?category=board_games&sort=rating&direction=asc">By Rating</a>
                             <a class="dropdown-item" href="{% url 'products' %}?category=board_games">All Board
@@ -68,11 +68,11 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown px-4">
-                        <a class="nav-link text-dark " href="#" id="clothing_id" data-bs-toggle="dropdown"
+                        <a class="nav-link text-dark " href="#" id="clothing_id_mobile" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <h2><strong>Clothing</strong></h2>
                         </a>
-                        <div class="dropdown-menu text-dark" aria-labelledby="clothing_id">
+                        <div class="dropdown-menu text-dark" aria-labelledby="clothing_id_mobile">
                             <a class="dropdown-item"
                                 href="{% url 'products' %}?category=clothing&sort=price&direction=asc">By Price</a>
                             <a class="dropdown-item"
@@ -81,11 +81,11 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown px-4">
-                        <a class="nav-link text-dark " href="#" id="gadget_id" data-bs-toggle="dropdown"
+                        <a class="nav-link text-dark " href="#" id="gadget_id_mobile" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <h2><strong>Gadgets</strong></h2>
                         </a>
-                        <div class="dropdown-menu text-dark" aria-labelledby="gadget_id">
+                        <div class="dropdown-menu text-dark" aria-labelledby="gadget_id_mobile">
                             <a class="dropdown-item"
                                 href="{% url 'products' %}?category=gadgets&sort=price&direction=asc">By Platform</a>
                             <a class="dropdown-item"
@@ -121,8 +121,7 @@
                     </li>
                     {% endif %}
                 </ul>
-                <hr>
-                <form class="d-flex" methods="GET" action="{% url 'products' %}">
+                <form class="d-flex" method="GET" action="{% url 'products' %}">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-light text-white" type="submit">Search</button>
                 </form>

@@ -114,3 +114,13 @@ Once deployed it was changed over to PostgresSQL which is provided by heroku
  Rating | rating | DecimalField | max_digits=6, decimal_places=2
  Image URL | image_url | URLField | max_length=1024, null=True, blank=True
  Image | image | ImageField | null=True, blank=True
+
+### Review Model
+ 
+| **Name** | **Database Key** | **Field Type** | **Validation** |
+--- | --- | --- | --- 
+User | user | ForeignKey | User, on_delete=models.CASCADE
+Product | product | ForeignKey | Product, related_name='reviews', on_delete=models.CASCADE
+Date | date | DateTimeField | auto_now_add=True
+User Review | user_review | TextField | max_length=500, blank=True
+Rating | rate | PositiveSmallIntegerField | choices=ONE_TO_FIVE
