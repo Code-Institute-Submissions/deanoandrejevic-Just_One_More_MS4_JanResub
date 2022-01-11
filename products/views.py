@@ -76,11 +76,14 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product)
+    avg_reviews = reviews.aggregate(Avg('rate'))
+    reviews_count = reviews.count()
 
     context = {
         'product': product,
         'reviews': reviews,
         'avg_reviews': avg_reviews,
+        'reviews_count': reviews_count,
     }
 
     return render(request, 'products/product_detail.html', context)
