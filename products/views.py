@@ -48,7 +48,7 @@ def products(request):
             query = request.GET['q']
             if not query:
                 messages.error(
-                    request, "What you want doesn't exsist! Try Again!")
+                    request, "What you want doesn't exist! Try Again!")
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(
