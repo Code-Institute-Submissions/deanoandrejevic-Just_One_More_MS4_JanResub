@@ -29,5 +29,8 @@
    },
    "[python]": {
       "editor.defaultFormatter": "ms-python.python"
-   }
+   },
+   "cSpell.words": [
+      "avalible"
+   ]
 }
