@@ -76,7 +76,6 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product)
-    avg_reviews = reviews.aggregate(Avg('rate'))
 
     context = {
         'product': product,
