@@ -14,6 +14,7 @@
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
+            <hr>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     {% if user.is_superuser %}
@@ -45,7 +46,8 @@
                         </a>
                         <div class="dropdown-menu text-white" aria-labelledby="video_game_id_mobile">
                             <a class="dropdown-item"
-                                href="{% url 'products' %}?category=video_games&sort=age_rating&direction=asc">By PEGI Rating</a>
+                                href="{% url 'products' %}?category=video_games&sort=age_rating&direction=asc">By PEGI
+                                Rating</a>
                             <a class="dropdown-item"
                                 href="{% url 'products' %}?category=video_games&sort=price&direction=asc">By Price</a>
                             <a class="dropdown-item"
@@ -115,10 +117,20 @@
                     </li>
                     {% endif %}
                 </ul>
-                <form class="d-flex" method="GET" action="{% url 'products' %}">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light text-white" type="submit">Search</button>
+                <form method="GET" action="{% url 'products' %}">
+                    <div class="input-group w-100">
+                        <input class="form-control shadows-font border-bottom" type="text" name="q"
+                            placeholder="Search video games, music, consoles....">
+                        <div class="input-group-append">
+                            <button class="form-control btn btn-dark rounded-circle" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
                 </form>
+
             </div>
         </div>
     </div>
