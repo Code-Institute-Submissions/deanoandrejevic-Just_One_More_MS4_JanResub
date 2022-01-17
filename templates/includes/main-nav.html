@@ -17,8 +17,8 @@
                     <div class="dropdown-menu text-dark" aria-labelledby="music_id">
                         <a class="dropdown-item"
                             href="{% url 'products' %}?category=music&sort=platform&direction=asc">By Platform</a>
-                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=rating&direction=asc">By
-                            Rating</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=price&direction=asc">By
+                            Price</a>
                         <a class="dropdown-item" href="{% url 'products' %}?category=music&sort=genre&direction=asc">By
                             Genre</a>
                         <a class="dropdown-item" href="{% url 'products' %}?category=music">All Music</a>
@@ -31,7 +31,7 @@
                     </a>
                     <div class="dropdown-menu text-dark" aria-labelledby="video_game_id">
                         <a class="dropdown-item"
-                            href="{% url 'products' %}?category=video_games&sort=rating&direction=asc">By Rating</a>
+                            href="{% url 'products' %}?category=video_games&sort=age_rating&direction=asc">By PEGI Rating</a>
                         <a class="dropdown-item"
                             href="{% url 'products' %}?category=video_games&sort=price&direction=asc">By Price</a>
                         <a class="dropdown-item"
@@ -46,7 +46,7 @@
                     </a>
                     <div class="dropdown-menu text-dark" aria-labelledby="board_game_id">
                         <a class="dropdown-item"
-                            href="{% url 'products' %}?category=board_games&sort=rating&direction=asc">By Rating</a>
+                            href="{% url 'products' %}?category=board_games&sort=price&direction=asc">By Price</a>
                         <a class="dropdown-item" href="{% url 'products' %}?category=board_games">All Board Games</a>
                     </div>
                 </li>
@@ -58,8 +58,6 @@
                     <div class="dropdown-menu text-dark" aria-labelledby="clothing_id">
                         <a class="dropdown-item"
                             href="{% url 'products' %}?category=clothing&sort=price&direction=asc">By Price</a>
-                        <a class="dropdown-item"
-                            href="{% url 'products' %}?category=clothing&sort=rating&direction=asc">By Rating</a>
                         <a class="dropdown-item" href="{% url 'products' %}?category=clothing">All Clothing</a>
                     </div>
                 </li>
@@ -69,10 +67,6 @@
                         <h2><strong>Gadgets</strong></h2>
                     </a>
                     <div class="dropdown-menu text-dark" aria-labelledby="gadget_id">
-                        <a class="dropdown-item"
-                            href="{% url 'products' %}?category=gadgets&sort=price&direction=asc">By Platform</a>
-                        <a class="dropdown-item"
-                            href="{% url 'products' %}?category=gadgets&sort=rating&direction=asc">By Rating</a>
                         <a class="dropdown-item" href="{% url 'products' %}?category=gadgets">All Gadgets</a>
                     </div>
                 </li>
